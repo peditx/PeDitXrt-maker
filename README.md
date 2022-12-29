@@ -9,7 +9,7 @@
 
 ## Credits
 
-- [PeDitX](https://peditx.ir)
+- [**PeDitX**](https://peditx.ir)
 - [**P3TERX**](https://p3terx.com)
 - [Microsoft Azure](https://azure.microsoft.com)
 - [GitHub Actions](https://github.com/features/actions)
@@ -28,7 +28,7 @@
 
 ## License
 
-[MIT](https://github.com/PeDitX/PeDitXrt/blob/main/LICENSE) © [PeDitX](https://peditx.ir)
+[MIT](https://github.com/PeDitX/PeDitXrt/blob/main/LICENSE) © [**PeDitX**](https://peditx.ir)
 
 ## Special thanks to
 [**P3TERX**](https://p3terx.com)
