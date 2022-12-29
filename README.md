@@ -28,4 +28,6 @@
 ## License
 
 [MIT](https://github.com/PeDitX/PeDitXrt/blob/main/LICENSE) © [PeDitX](https://peditx.ir)
+
+## Special thanks to
 [MIT](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © [**P3TERX**](https://p3terx.com)
