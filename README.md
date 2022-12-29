@@ -10,6 +10,7 @@
 ## Credits
 
 - [PeDitX](https://peditx.ir)
+- [**P3TERX**](https://p3terx.com)
 - [Microsoft Azure](https://azure.microsoft.com)
 - [GitHub Actions](https://github.com/features/actions)
 - [OpenWrt](https://github.com/openwrt/openwrt)
@@ -30,4 +31,4 @@
 [MIT](https://github.com/PeDitX/PeDitXrt/blob/main/LICENSE) © [PeDitX](https://peditx.ir)
 
 ## Special thanks to
-[MIT](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © [**P3TERX**](https://p3terx.com)
+[**P3TERX**](https://p3terx.com)
