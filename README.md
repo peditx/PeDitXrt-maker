@@ -1,4 +1,4 @@
-**English** | [中文](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
+**English** 
 
 # Actions-OpenWrt
 
@@ -24,6 +24,7 @@ A template for building OpenWrt with GitHub Actions
 
 ## Credits
 
+- [PeDitX](https://peditx.ir)
 - [Microsoft Azure](https://azure.microsoft.com)
 - [GitHub Actions](https://github.com/features/actions)
 - [OpenWrt](https://github.com/openwrt/openwrt)
@@ -41,4 +42,5 @@ A template for building OpenWrt with GitHub Actions
 
 ## License
 
+[MIT](https://github.com/PeDitX/PeDitXrt/blob/main/LICENSE) @ [PeDitX](https://peditx.ir)
 [MIT](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © [**P3TERX**](https://p3terx.com)
