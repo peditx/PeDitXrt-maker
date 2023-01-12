@@ -67,8 +67,6 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
-        sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
-        sed -i '1i src-git haibo https://github.com/haiibo/openwrt-packages' feeds.conf.default
         git pull
 
     - name: Update feeds
