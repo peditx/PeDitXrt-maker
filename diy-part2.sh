@@ -10,10 +10,10 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
- Modify default IP
+#Modify default IP
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 
- Rename design
+#Rename design
 sed -i '  _____     _____  _ _  __   __     _   
  |  __ \   |  __ \(_) | \ \ / /    | |  
  | |__) |__| |  | |_| |_ \ V / _ __| |_ 
