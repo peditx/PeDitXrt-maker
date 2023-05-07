@@ -1,5 +1,5 @@
 # Define workflow name
-name: Build PeDitXrt with Date
+name: "my Build PeDitXrt_$(date +%Y-%m-%d)_pdx"
 
 # Define event triggers
 on:
