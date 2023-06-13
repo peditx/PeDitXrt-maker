@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build PeDitXrt-stable
+name: Build PeDitXrt
 
 on:
   repository_dispatch:
@@ -22,7 +22,7 @@ on:
 env:
   REPO_URL: https://github.com/peditx/PeDitXrt
   REPO_BRANCH: openwrt-21.02
-  TAG: v21.02.6
+  TAG: v21.02.6  # Add TAG variable to store the tag name
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -41,14 +41,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@main
-      with:
-          repository: ${{ env.REPO_URL }}
-          ref: ${{ env.REPO_BRANCH }}
-    
-    - name: Checkout specific tag
-        run: |
-          cd ${{ env.REPO_BRANCH }}
-          git checkout ${{ env.TAG }} git checkout 
 
     - name: Initialization environment
       env:
@@ -64,12 +56,22 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
 
     - name: Clone source code
-      working-directory: /workdir
-      run: |
-        df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        working-directory: /workdir
+        run: |
+          df -hT $PWD
+          git clone $REPO_URL -b $REPO_BRANCH openwrt
+          ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.REPO_URL }}
+          ref: ${{ env.REPO_BRANCH }}
+
+      - name: Checkout specific tag
+        run: |
+          cd ${{ env.REPO_BRANCH }}
+          git checkout ${{ env.TAG }}  # Use git checkout command to checkout the desired tag
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
