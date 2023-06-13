@@ -61,17 +61,14 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        repository: ${{ env.REPO_URL }}
-        ref: ${{ env.REPO_BRANCH }}
-
-    - name: Checkout specific tag
+    
+    - name: Checkout code and specific tag
       run: |
-          cd ${{ env.REPO_BRANCH }}
-          git checkout ${{ env.TAG }}  # Use git checkout command to checkout the desired tag
+        git clone ${{ env.REPO_URL }} -b ${{ env.REPO_BRANCH }}
+        cd openwrt
+        git checkout ${{ env.TAG }}
+
+
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
