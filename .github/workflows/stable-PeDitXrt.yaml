@@ -66,6 +66,8 @@ jobs:
       run: |
         git clone ${{ env.REPO_URL }} -b ${{ env.REPO_BRANCH }}
         cd openwrt
+        git checkout -b new-branch
+        git pull origin new-branch
         git checkout ${{ env.TAG }}
 
 
