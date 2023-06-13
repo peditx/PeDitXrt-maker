@@ -56,20 +56,20 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
 
     - name: Clone source code
-        working-directory: /workdir
-        run: |
-          df -hT $PWD
-          git clone $REPO_URL -b $REPO_BRANCH openwrt
-          ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+      working-directory: /workdir
+      run: |
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ env.REPO_URL }}
-          ref: ${{ env.REPO_BRANCH }}
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ env.REPO_URL }}
+        ref: ${{ env.REPO_BRANCH }}
 
-      - name: Checkout specific tag
-        run: |
+    - name: Checkout specific tag
+      run: |
           cd ${{ env.REPO_BRANCH }}
           git checkout ${{ env.TAG }}  # Use git checkout command to checkout the desired tag
     - name: Load custom feeds
