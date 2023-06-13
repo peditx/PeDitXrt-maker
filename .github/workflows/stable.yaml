@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/peditx/PeDitXrt
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-21.02
   TAG: v21.02.6  # Add TAG variable to store the tag name
   FEEDS_CONF: feeds.conf.default
