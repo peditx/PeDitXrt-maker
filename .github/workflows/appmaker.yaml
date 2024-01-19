@@ -38,8 +38,7 @@ jobs:
 
     - name: Compile Luci-theme-design
       run: |
-        cd /home/runner/openwrt/package/$PROGRAM_NAME
-        make package/luci-theme-design/compile V=s
+        make package/$PROGRAM_NAME/compile V=s
 
     - name: Rename Output File
       run: |
