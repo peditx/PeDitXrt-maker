@@ -25,3 +25,7 @@
 # %D %V, %C
 # -----------------------------------------------------' package/base-files/files/etc/banner
 
+# openwrt-passwall2
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git
+cp -rf openwrt-passwall2/luci-app-passwall2 package/luci-app-passwall2
+#rm -rf openwrt-passwall2
