@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: Clone External Program Repository
       run: |
-        git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH package/luci-theme-design
+        git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH package/$PROGRAM_NAME
 
     - name: Install Dependencies for OpenWrt Build
       run: |
@@ -28,7 +28,7 @@ jobs:
 
     - name: Compile the Program
       run: |
-        cd $PROGRAM_NAME
+        cd package/$PROGRAM_NAME
         make
 
     - name: Rename Output File
