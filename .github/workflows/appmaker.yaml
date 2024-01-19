@@ -33,6 +33,7 @@ jobs:
     - name: Compile Luci-theme-design
       run: |
         cd /home/runner/openwrt
+        ./scripts/feeds install libpam liblzma libnetsnmp
         make package/$PROGRAM_NAME/{clean,compile} V=s
 
     - name: Rename Output File
