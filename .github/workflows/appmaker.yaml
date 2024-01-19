@@ -28,26 +28,26 @@ jobs:
 
     - name: Clone OpenWrt Repository
       run: |
-        git clone https://github.com/openwrt/openwrt.git -b main /path/to/openwrt
+        git clone https://github.com/openwrt/openwrt.git -b main /home/runner/openwrt
 
     - name: Update Feeds
       run: |
-        cd /path/to/openwrt
+        cd /home/runner/openwrt
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
     - name: Compile the Program
       run: |
-        cd /path/to/openwrt
+        cd /home/runner/openwrt
         make defconfig
         make
 
     - name: Rename Output File
       run: |
-        mv /path/to/openwrt/$OUTPUT_FILE /path/to/openwrt/$RENAMED_FILE
+        mv /home/runner/openwrt/$OUTPUT_FILE /home/runner/openwrt/$RENAMED_FILE
 
     - name: Upload Renamed File
       uses: actions/upload-artifact@v2
       with:
         name: $RENAMED_FILE
-        path: /path/to/openwrt/$RENAMED_FILE
+        path: /home/runner/openwrt/$RENAMED_FILE
