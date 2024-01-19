@@ -14,7 +14,7 @@ jobs:
       EXTERNAL_REPO_BRANCH: js
       PROGRAM_NAME: Luci-theme-design
       OUTPUT_FILE: $PROGRAM_NAME
-      RENAMED_FILE: Luci-theme-design
+      RENAMED_FILE: Luci-theme-peditx
 
     steps:
     - name: Clone External Program Repository
