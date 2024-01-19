@@ -26,17 +26,24 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y build-essential
 
+    - name: Update Feeds
+      run: |
+        cd /path/to/openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+
     - name: Compile the Program
       run: |
-        cd package/$PROGRAM_NAME
+        cd /path/to/openwrt
+        make defconfig
         make
 
     - name: Rename Output File
       run: |
-        mv $OUTPUT_FILE $RENAMED_FILE
+        mv /path/to/openwrt/$OUTPUT_FILE /path/to/openwrt/$RENAMED_FILE
 
     - name: Upload Renamed File
       uses: actions/upload-artifact@v2
       with:
         name: $RENAMED_FILE
-        path: ./$RENAMED_FILE
+        path: /path/to/openwrt/$RENAMED_FILE
