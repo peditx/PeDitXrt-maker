@@ -22,7 +22,9 @@ jobs:
 
     - name: Clone Luci-theme-design Repository
       run: git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/openwrt/package/$PROGRAM_NAME
-
+    - name : Remove Old config
+      run: rm /home/runner/openwrt/feeds.conf.default
+      
     - name: Add Luci Repository to feeds.conf.default
       run: echo "src-git luci https://github.com/openwrt/luci.git" >> /home/runner/openwrt/feeds.conf.default
 
