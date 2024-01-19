@@ -12,7 +12,7 @@ jobs:
     env:
       EXTERNAL_REPO_URL: https://github.com/gngpp/luci-theme-design.git
       EXTERNAL_REPO_BRANCH: js
-      PROGRAM_NAME: Luci-theme-design
+      PROGRAM_NAME: luci-theme-design
       OUTPUT_FILE: $PROGRAM_NAME
       RENAMED_FILE: Luci-theme-peditx
 
