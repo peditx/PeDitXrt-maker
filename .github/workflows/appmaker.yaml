@@ -15,11 +15,11 @@ jobs:
     env:
       OPENWRT_REPO_URL: https://github.com/openwrt/openwrt.git
       OPENWRT_REPO_BRANCH: main
-      EXTERNAL_REPO_URL: https://github.com/your-username/your-external-repo.git
-      EXTERNAL_REPO_BRANCH: main
-      PROGRAM_NAME: your-program
+      EXTERNAL_REPO_URL: https://github.com/gngpp/luci-theme-design.git
+      EXTERNAL_REPO_BRANCH: js
+      PROGRAM_NAME: luci-theme-peditx
       OUTPUT_FILE: $PROGRAM_NAME
-      RENAMED_FILE: new-program-name
+      RENAMED_FILE: luci-theme-peditx
 
     steps:
     - name: Checkout OpenWrt Repository
