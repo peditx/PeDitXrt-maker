@@ -17,9 +17,10 @@ jobs:
       RENAMED_FILE: Luci-theme-design
 
     steps:
-    - name : Depences
+    - name : dependency
       run: |
-        sudo apt-get install libpam0g-dev liblzma-dev libsnmp-dev
+        sudo apt update
+        sudo apt install libpam0g-dev liblzma-dev libsnmp-dev
         
     - name: Clone OpenWrt Repository
       run: |
