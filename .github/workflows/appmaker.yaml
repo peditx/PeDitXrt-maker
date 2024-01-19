@@ -25,6 +25,10 @@ jobs:
       run: |
         git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/openwrt/package/$PROGRAM_NAME
 
+    - name: Add Luci Repository to feeds.conf.default
+      run: |
+        echo "src-git luci https://github.com/openwrt/luci.git" >> /home/runner/openwrt/feeds.conf.default
+
     - name: Install Dependencies for OpenWrt Build
       run: |
         sudo apt-get update
@@ -33,6 +37,8 @@ jobs:
     - name: Compile Luci-theme-design
       run: |
         cd /home/runner/openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
         make defconfig
         make package/$PROGRAM_NAME/compile V=s
 
