@@ -26,6 +26,10 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y build-essential
 
+    - name: Clone OpenWrt Repository
+      run: |
+        git clone https://github.com/openwrt/openwrt.git -b main /path/to/openwrt
+
     - name: Update Feeds
       run: |
         cd /path/to/openwrt
