@@ -30,15 +30,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y build-essential
 
-    - name: Update feeds and install dependencies
-      run: |
-        cd /home/runner/openwrt
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
-
     - name: Compile Luci-theme-design
       run: |
-        make menuconfig
         make package/$PROGRAM_NAME/compile V=s
 
     - name: Rename Output File
