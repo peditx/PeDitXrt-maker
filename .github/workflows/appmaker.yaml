@@ -23,7 +23,6 @@ jobs:
 
     - name: Update feeds in Luci-theme-design repository
       run: |
-        ls
         cd /home/runner/$PROGRAM_NAME
         ./scripts/feeds update -a
         ./scripts/feeds install -a
@@ -36,7 +35,8 @@ jobs:
     - name: Compile Luci-theme-design
       run: |
         cd /home/runner/$PROGRAM_NAME
-        make
+        make menuconfig # انتخاب تنظیمات موردنیاز
+        make V=s
 
     - name: Rename Output File
       run: |
