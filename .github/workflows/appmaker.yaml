@@ -1,0 +1,60 @@
+name: app maker
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_compile:
+    runs-on: ubuntu-latest
+
+    env:
+      OPENWRT_REPO_URL: https://github.com/openwrt/openwrt.git
+      OPENWRT_REPO_BRANCH: main
+      EXTERNAL_REPO_URL: https://github.com/your-username/your-external-repo.git
+      EXTERNAL_REPO_BRANCH: main
+      PROGRAM_NAME: your-program
+      OUTPUT_FILE: $PROGRAM_NAME
+      RENAMED_FILE: new-program-name
+
+    steps:
+    - name: Checkout OpenWrt Repository
+      uses: actions/checkout@v2
+      with:
+        repository: $OPENWRT_REPO_URL
+        ref: $OPENWRT_REPO_BRANCH
+
+    - name: Install Dependencies
+      run: |
+        cd openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+
+    - name: Clone External Program Repository
+      run: |
+        git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH package/$PROGRAM_NAME
+
+    - name: Configure OpenWrt
+      run: |
+        cd openwrt
+        make menuconfig
+
+    - name: Compile OpenWrt
+      run: |
+        cd openwrt
+        make -j$(nproc)
+
+    - name: Rename Output File
+      run: |
+        cd openwrt
+        mv bin/targets/*/*/your-program-output-file bin/targets/*/*/$RENAMED_FILE
+
+    - name: Upload Renamed File
+      uses: actions/upload-artifact@v2
+      with:
+        name: $RENAMED_FILE
+        path: ./openwrt/bin/targets/*/*
