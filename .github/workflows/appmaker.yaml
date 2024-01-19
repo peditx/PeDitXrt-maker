@@ -18,16 +18,13 @@ jobs:
 
     steps:
     - name: Clone OpenWrt Repository
-      run: |
-        git clone https://github.com/openwrt/openwrt.git -b main /home/runner/openwrt
+      run: git clone https://github.com/openwrt/openwrt.git -b main /home/runner/openwrt
 
     - name: Clone Luci-theme-design Repository
-      run: |
-        git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/openwrt/package/$PROGRAM_NAME
+      run: git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/openwrt/package/$PROGRAM_NAME
 
     - name: Add Luci Repository to feeds.conf.default
-      run: |
-        echo "src-git luci https://github.com/openwrt/luci.git" >> /home/runner/openwrt/feeds.conf.default
+      run: echo "src-git luci https://github.com/openwrt/luci.git" >> /home/runner/openwrt/feeds.conf.default
 
     - name: Install Dependencies for OpenWrt Build
       run: |
@@ -47,8 +44,7 @@ jobs:
         make package/$PROGRAM_NAME/compile V=s
 
     - name: Rename Output File
-      run: |
-        mv /home/runner/openwrt/bin/packages/mips_24kc/packages/$OUTPUT_FILE.ipk /home/runner/openwrt/bin/packages/mips_24kc/packages/$RENAMED_FILE.ipk
+      run: mv /home/runner/openwrt/bin/packages/mips_24kc/packages/$OUTPUT_FILE.ipk /home/runner/openwrt/bin/packages/mips_24kc/packages/$RENAMED_FILE.ipk
 
     - name: Upload Renamed File
       uses: actions/upload-artifact@v2
