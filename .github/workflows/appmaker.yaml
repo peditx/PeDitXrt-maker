@@ -17,6 +17,10 @@ jobs:
       RENAMED_FILE: Luci-theme-design
 
     steps:
+    - name : Depences
+      run: |
+        sudo apt-get install libpam0g-dev liblzma-dev libsnmp-dev
+        
     - name: Clone OpenWrt Repository
       run: |
         git clone https://github.com/openwrt/openwrt.git -b main /home/runner/openwrt
