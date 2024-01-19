@@ -34,11 +34,15 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y build-essential libpam0g-dev liblzma-dev libsnmp-dev
 
-    - name: Compile Luci-theme-design
+    - name: Update and Install Feeds
       run: |
         cd /home/runner/openwrt
         ./scripts/feeds update -a
         ./scripts/feeds install -a
+
+    - name: Compile Luci-theme-design
+      run: |
+        cd /home/runner/openwrt
         make defconfig
         make package/$PROGRAM_NAME/compile V=s
 
