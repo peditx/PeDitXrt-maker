@@ -14,7 +14,7 @@ jobs:
       EXTERNAL_REPO_BRANCH: js
       PROGRAM_NAME: luci-theme-design
       OUTPUT_FILE: $PROGRAM_NAME
-      RENAMED_FILE: Luci-theme-design
+      RENAMED_FILE: Luci-theme-peditx
 
     steps:
     - name: Clone OpenWrt Repository
@@ -38,8 +38,8 @@ jobs:
 
     - name: Compile Luci-theme-design
       run: |
-        cd /home/runner/openwrt/package/$PROGRAM_NAME
-        make V=s
+        make menuconfig
+        make package/$PROGRAM_NAME/compile V=s
 
     - name: Rename Output File
       run: |
