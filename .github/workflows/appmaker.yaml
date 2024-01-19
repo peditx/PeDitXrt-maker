@@ -21,6 +21,12 @@ jobs:
       run: |
         git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/$PROGRAM_NAME
 
+    - name: Update feeds in Luci-theme-design repository
+      run: |
+        cd /home/runner/$PROGRAM_NAME
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+
     - name: Install Dependencies for OpenWrt Build
       run: |
         sudo apt-get update
