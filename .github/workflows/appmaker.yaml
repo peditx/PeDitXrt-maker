@@ -23,6 +23,7 @@ jobs:
 
     - name: Update feeds in Luci-theme-design repository
       run: |
+        ls
         cd /home/runner/$PROGRAM_NAME
         ./scripts/feeds update -a
         ./scripts/feeds install -a
