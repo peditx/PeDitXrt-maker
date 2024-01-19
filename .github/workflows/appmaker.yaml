@@ -38,7 +38,7 @@ jobs:
 
     - name: Compile Luci-theme-design
       run: |
-        make package/$PROGRAM_NAME/compile V=s
+        make package/$PROGRAM_NAME/{clean,compile} V=s
 
     - name: Rename Output File
       run: |
