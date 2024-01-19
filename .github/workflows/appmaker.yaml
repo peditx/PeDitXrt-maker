@@ -17,6 +17,10 @@ jobs:
       RENAMED_FILE: Luci-theme-peditx
 
     steps:
+    - name: Clone OpenWrt Repository
+      run: |
+        git clone https://github.com/openwrt/openwrt.git -b main /home/runner/openwrt
+        
     - name: Clone Luci-theme-design Repository
       run: |
         git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/$PROGRAM_NAME
@@ -25,10 +29,6 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential
-
-    - name: Clone OpenWrt Repository
-      run: |
-        git clone https://github.com/openwrt/openwrt.git -b main /home/runner/openwrt
 
     - name: Update feeds and install dependencies
       run: |
