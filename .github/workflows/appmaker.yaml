@@ -25,7 +25,7 @@ jobs:
     - name: Checkout OpenWrt Repository
       uses: actions/checkout@v2
       with:
-        repository: $OPENWRT_REPO_URL
+        repository: openwrt/openwrt
         ref: $OPENWRT_REPO_BRANCH
 
     - name: Install Dependencies
