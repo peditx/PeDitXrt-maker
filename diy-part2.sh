@@ -29,6 +29,6 @@
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git
 cp -rf openwrt-passwall2/luci-app-passwall2 package/luci-app-passwall2
 #rm -rf openwrt-passwall2
-git clone --depth=1 https://github.com/gngpp/luci-theme-design.git -b js
-cp -rf luci-theme-design/luci-theme-design package/luci-theme-design
+git clone https://github.com/gngpp/luci-theme-design.git -b js package/luci-theme-design
+#cp -rf luci-theme-design/luci-theme-design package/luci-theme-design
 #rm -rf luci-theme-design
