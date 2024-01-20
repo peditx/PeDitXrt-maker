@@ -15,6 +15,7 @@ jobs:
       PROGRAM_NAME: luci-theme-design
       OUTPUT_FILE: $PROGRAM_NAME
       RENAMED_FILE: Luci-theme-design
+      CONFIG_FILE: app.config
 
     steps:
     - name: Clone OpenWrt Repository
@@ -23,11 +24,13 @@ jobs:
     - name: Clone Luci-theme-design Repository
       run: git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/openwrt/package/$PROGRAM_NAME
 
+    - name: Copy Custom Config File
+      run: |
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE /home/runner/openwrt/.config
+        [ -e files ] && mv files /home/runner/openwrt/files
+
     - name: Clean Staging Directory
       run: rm -rf /home/runner/openwrt/staging_dir/*
-
-    - name: Add Luci Repository to feeds.conf.default
-      run: echo "src-git luci https://github.com/openwrt/luci.git" >> /home/runner/openwrt/feeds.conf.default
 
     - name: Install Dependencies for OpenWrt Build
       run: |
