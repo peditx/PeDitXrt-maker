@@ -24,6 +24,14 @@ jobs:
     - name: Clone Luci-theme-design Repository
       run: git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/openwrt/package/$PROGRAM_NAME
 
+    - name: Move files to the correct path
+      run: |
+        mv $GITHUB_WORKSPACE/files /home/runner/openwrt/files
+        mv $GITHUB_WORKSPACE/app.config /home/runner/openwrt/.config
+      shell: /usr/bin/bash -e {0}
+      env:
+        GITHUB_WORKSPACE: $GITHUB_WORKSPACE
+
     - name: Clean Staging Directory
       run: rm -rf /home/runner/openwrt/staging_dir/*
 
@@ -31,11 +39,6 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential libpam0g-dev liblzma-dev libsnmp-dev
-
-    - name: Load custom configuration
-      run: |
-        [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
 
     - name: Update and Install Feeds
       run: |
