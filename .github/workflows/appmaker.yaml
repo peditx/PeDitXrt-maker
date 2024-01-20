@@ -31,13 +31,6 @@ jobs:
       env:
         GITHUB_WORKSPACE: $GITHUB_WORKSPACE
 
-    - name: Move files to the correct path
-      run: |
-        mv $GITHUB_WORKSPACE/your_folder_name /home/runner/openwrt/files
-        mv $GITHUB_WORKSPACE/app.config /home/runner/openwrt/.config
-      env:
-        GITHUB_WORKSPACE: $GITHUB_WORKSPACE
-
     - name: Clean Staging Directory
       run: rm -rf /home/runner/openwrt/staging_dir/*
 
