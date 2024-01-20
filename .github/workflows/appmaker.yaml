@@ -24,6 +24,14 @@ jobs:
     - name: Clone Luci-theme-design Repository
       run: git clone $EXTERNAL_REPO_URL -b $EXTERNAL_REPO_BRANCH /home/runner/openwrt/package/$PROGRAM_NAME
 
+    - name: Check directory contents and current path
+      run: |
+        ls $GITHUB_WORKSPACE
+        pwd
+      shell: /usr/bin/bash -e {0}
+      env:
+        GITHUB_WORKSPACE: $GITHUB_WORKSPACE
+
     - name: Move files to the correct path
       run: |
         mv $GITHUB_WORKSPACE/your_folder_name /home/runner/openwrt/files
