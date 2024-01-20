@@ -44,11 +44,10 @@ jobs:
         cd /home/runner/openwrt
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-
     - name: Copy libc files
       run: |
-        mkdir -p /home/runner/openwrt/build_dir/target-mips_24kc_musl/toolchain/.pkgdir/libc/lib
-        cp -fpR /home/runner/openwrt/staging_dir/toolchain-mips_24kc_gcc-12.3.0_musl/lib/ld-musl-*.so* /home/runner/openwrt/build_dir/target-mips_24kc_musl/toolchain/.pkgdir/libc/lib/
+       mkdir -p /home/runner/openwrt/build_dir/target-mips_24kc_musl/toolchain/.pkgdir/libc/lib
+        cp -fpR /home/runner/openwrt/staging_dir/toolchain-mips_24kc_gcc-12.3.0_musl/lib/libc.so* /home/runner/openwrt/build_dir/target-mips_24kc_musl/toolchain/.pkgdir/libc/lib/
       if: always()
 
     - name: Compile Luci-theme-design
