@@ -34,7 +34,6 @@ jobs:
 
     - name: Move files to the correct path
       run: |
-        mv $GITHUB_WORKSPACE/your_folder_name /home/runner/openwrt/files
         mv $GITHUB_WORKSPACE/app.config /home/runner/openwrt/.config
       shell: /usr/bin/bash -e {0}
       env:
